@@ -1,4 +1,4 @@
-module Layouts.MainLayout exposing (..)
+module Layouts.DefaultLayout exposing (..)
 
 
 import Browser
@@ -15,7 +15,6 @@ type alias Details msg =
 
 
 -- VIEW
-
 view : (a -> msg) -> Details a -> Browser.Document msg
 view toMsg details =
     { title =
@@ -28,38 +27,19 @@ view toMsg details =
         ]
     }
 
----- VIEW ----
--- view : Model -> Browser.Document Msg
--- view model =
---     { title = "TODO APP"
---     , body =
---         [ 
---         -- text "The current URL is: "
---         -- , b [] [ text (Url.toString model.url) ]
---         -- , ul []
---         --   [ viewLink "/"
---         --   , viewLink "/profile"
---         --   , viewLink "/reviews/the-century-of-the-self"
---         --   , viewLink "/reviews/public-opinion"
---         --   , viewLink "/reviews/shah-of-shahs"
---         --   ]
---         -- , div [ class "home-wrapper" ]
---         --     [ img [ src "/logo.svg" ] []
---         --     , h1 [] [ text "Your Elm App is working!" ]
---         --     ]
---         ]
---     }
-
-
 
 -- VIEW HEADER
 viewHeader : Html msg
 viewHeader =
   div
-    [ style "background-color" "#eeeeee"
+    [ style "backgroundColor" "#eeeeee"
     ]
     [ div [class "center"]
-        [ h1 [ class "header" ] []
+        [ h1 [ class "header", style "margin" "0px" ] [ text "Header" ]
+        , ul []
+            [ li [] [ createLink "" ]
+            , li [] [ createLink "about" ]
+            ]
         ]
     ]
 
@@ -73,3 +53,12 @@ viewFooter =
     ]
 
 
+createLink : String -> Html msg
+createLink path =
+    a [ href ("/" ++ path) ] 
+    [ 
+        if path == "" then 
+            text "Home"
+        else
+            text path
+    ]
