@@ -79,7 +79,7 @@
     "postcss-reporter": "^6.0.1",
     "postcss-simple-vars": "^5.0.2",
     "promise": "8.0.1",
-    "react-dev-utils": "6.1.1",
+    "react-dev-utils": "11.0.4",
     "react-error-overlay": "^4.0.0",
     "rucksack-css": "^1.0.2",
     "string-replace-loader": "^2.1.1",
